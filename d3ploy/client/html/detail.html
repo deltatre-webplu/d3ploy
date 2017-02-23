@@ -1,0 +1,15 @@
+﻿<div class="">
+	<button class="btn btn-floating waves-effect waves-light btn-small right" ng-click="deleteItem()" title="Delete">
+		<i class="material-icons">delete</i>
+	</button>
+
+	<h2 class="header"><small>{{currentItem.parent.path}}</small>{{currentItem.name}}</h2>
+
+	<div ng-if="currentItem.type === 'directory'">
+		<ng-include src="'/client/html/detail.directory.html'" />
+	</div>
+
+	<div ng-if="currentItem.type === 'script' || currentItem.type === 'libraryScript'">
+		<ng-include src="'/client/html/detail.script.html'" />
+	</div>
+</div>

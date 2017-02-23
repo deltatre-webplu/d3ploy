@@ -1,0 +1,11 @@
+﻿<a ng-click="selectItem(directory)">{{directory.name}}</a>
+<input type="checkbox" ng-model="directory.isOpen" ng-if="directory.files.length || directory.directories.length " />
+
+<ol>
+	<li class="directory" ng-repeat="directory in directory.directories | orderBy:'name'" ng-include="'/client/html/tree.directory.html'" ng-class="{'active': (tree.currentItem === directory) }">
+		<!-- directory -->
+	</li>
+	<li class="file" ng-repeat="file in directory.files | filter: isNotALibrary | orderBy:'name'" ng-include="'/client/html/tree.file.html'" ng-class="{'active': (tree.currentItem === file) }">
+		<!-- file -->
+	</li>
+</ol>

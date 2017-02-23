@@ -1,0 +1,88 @@
+﻿ol.treeview {
+	padding: 0 0 0 30px;
+
+	li {
+		position: relative;
+		margin-left: -15px;
+		list-style: none;
+		min-height: 1.5em;
+	}
+
+	li.file {
+		margin-left: -1px !important;
+	}
+
+	li.file a {
+		background: url(document.png) 0 0 no-repeat;
+		padding-left: 21px;
+		text-decoration: none;
+		display: block;
+		cursor: pointer;
+	}
+	/*
+	li.file a[href *= '.pdf'] {
+		background: url(document.png) 0 0 no-repeat;
+	}
+
+	li.file a[href *= '.html'] {
+		background: url(document.png) 0 0 no-repeat;
+	}
+
+	li.file a[href $= '.css'] {
+		background: url(document.png) 0 0 no-repeat;
+	}
+
+	li.file a[href $= '.js'] {
+		background: url(document.png) 0 0 no-repeat;
+	}*/
+	li input[type="checkbox"] {
+		position: absolute;
+		left: 0;
+		margin-left: 0;
+		opacity: 0;
+		z-index: 2;
+		cursor: pointer;
+		height: 1em;
+		width: 1em;
+		top: 0;
+		visibility: visible;
+	}
+
+	li input[type="checkbox"] + ol {
+		background: url(toggle-small-expand.png) 40px 0 no-repeat;
+    margin: -1.5em 0 0 -40px;
+    height: 1em;
+    line-height: 1.5;
+	}
+
+	li input[type="checkbox"] + ol > li {
+		display: none;
+	}
+
+	li.directory > a {
+		background: url(folder-horizontal.png) 15px 1px no-repeat;
+		cursor: pointer;
+		display: block;
+		padding-left: 37px;
+		margin: 0;
+	}
+
+	li input[type="checkbox"]:checked + ol {
+    background: url(toggle-small.png) 40px 0 no-repeat;
+    margin: -1.5em 0 0 -40px;
+    padding: 1.5em 0 0 70px;
+    height: auto;
+	}
+
+	li input[type="checkbox"]:checked + ol > li {
+		display: block;
+	}
+
+	li input[type="checkbox"]:checked + ol > li:last-child {
+	}
+
+	li.active > a {
+		background-color: #0094ff;
+		color: white;
+	}
+}

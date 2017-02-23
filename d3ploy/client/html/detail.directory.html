@@ -1,0 +1,42 @@
+﻿<div ng-controller="DetailDirectoryController">
+
+	<ul class="collapsible" data-collapsible="accordion">
+		<li>
+			<div class="collapsible-header active"><i class="material-icons">code</i>Libraries</div>
+			<div class="collapsible-body">
+				<ul class="collection">
+					<li ng-repeat="file in currentItem.files | filter: isALibrary | orderBy:'name'" class="collection-item">
+						<a ng-click="selectItem(file)">
+							{{file.name}}
+						</a>
+					</li>
+				</ul>
+			</div>
+		</li>
+		<li>
+			<div class="collapsible-header"><i class="material-icons">description</i>Scripts</div>
+			<div class="collapsible-body">
+				<ul class="collection">
+					<li ng-repeat="file in currentItem.files | filter: isNotALibrary | orderBy:'name'" class="collection-item">
+						<a ng-click="selectItem(file)">
+							{{file.name}}
+						</a>
+					</li>
+				</ul>
+			</div>
+		</li>
+	</ul>
+
+	<script>
+		$('.collapsible').collapsible();
+	</script>
+
+	<div class="section-actions">
+		<button class="btn waves-effect waves-light btn-small" ng-click="newDirectory()" title="New directory">
+			New directory <i class="material-icons right">add</i>
+		</button>
+		<button class="btn waves-effect waves-light btn-small" ng-click="newScript()" title="New script">
+			New script <i class="material-icons right">add</i>
+		</button>
+	</div>
+</div>

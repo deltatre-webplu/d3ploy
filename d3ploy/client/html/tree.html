@@ -1,0 +1,63 @@
+﻿<nav class="">
+	<div class="nav-wrapper">
+		<a href="#" class="brand-logo">d3ploy</a>
+
+
+		<ul class="right">
+			<li><a class="right"><!--<i class="material-icons">perm_identity</i>--> {{user.name}}</a></li>
+		</ul>
+	</div>
+</nav>
+
+<div class="row">
+
+	<div class="col s4 section-detail">
+		<ol class="treeview">
+			<li class="directory" ng-repeat="directory in [tree]" ng-include="'/client/html/tree.directory.html'" ng-class="{'active': (tree.currentItem === directory) }">
+			</li>
+		</ol>
+	</div>
+
+	<div class="col s8">
+
+		<!-- Main content -->
+		<div class="row">
+			<div class="col s12 section-detail">
+
+				<div ui-view></div>
+
+			</div>
+		</div>
+
+		<!-- Terminal -->
+		<div class="row" ng-controller="TerminalController">
+			<div class="col s12 section-terminal">
+				<div class="card">
+					<div class="card-content" ng-click="readlineFocus()">
+
+						<h3 class="header">
+							Terminal
+							<small ng-if="executing">(executing...)</small><small ng-if="readlineWaiting">(waiting for input...)</small>
+						</h3>
+						<div class="terminal">
+							<p class="msg-{{message.severity}}" ng-repeat="message in messages track by $index" ng-click="$event.stopPropagation()">
+								{{message.value}}
+							</p>
+							<div class="line">
+								<span class="prompt"> &gt;</span>
+								<input type="{{readlineMode}}" class="readLine active" focus-on="readline" ng-keydown="keydown($event)" ng-model="readlineInput" >
+							</div>
+						</div>
+
+						<!--<terminal enable-prompt="!executing || readingLine">
+						</terminal>-->
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+
+</div>

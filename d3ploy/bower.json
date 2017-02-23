@@ -1,0 +1,27 @@
+{
+  "name": "d3ploy",
+  "authors": [
+    "Davide Icardi <davide.icardi@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-ace": "bower",
+    "angular-sanitize": "~1.4.3",
+    "angular-ui-router": "~0.2.15",
+    "jquery": "~2.1.4",
+    "materialize": "~0.97.0",
+    "angular-web-notification": "^0.0.66"
+  }
+}

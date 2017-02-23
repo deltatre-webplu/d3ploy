@@ -1,0 +1,21 @@
+﻿<div ng-controller="DetailScriptController">
+
+	<div class="script-editor" ui-ace="{theme:'cobalt', mode: 'powershell', onBlur: aceBlur, onLoad: aceLoaded}" ng-model="content">
+	</div>
+
+	<div class="section-actions">
+		<button class="btn waves-effect waves-light" ng-click="executeFile()" type="submit" title="Execute">
+			Execute <i class="material-icons right">play_circle_filled</i>
+		</button>
+
+		<span>
+			<span ng-show="isContentChanged()">
+				changed...
+			</span>
+			<span ng-show="saveStatus !== 'saved' || !isContentChanged()">
+				{{saveStatus}}
+			</span>
+		</span>
+	</div>
+
+</div>
